@@ -1,0 +1,42 @@
+// Afin d'obtenir la famille de polices par défaut de l'appareil, j'ai écrit un canal de plate-forme sur Android, 
+// voici le code pour obtenir la famille de polices par défaut de l'appareil :
+
+
+
+private String getDefaultFont() {
+    File configFilename = new File("/system/etc/system_fonts.xml");
+    // sans-serif is the default font family name in Android SDK, check out the code in Typeface.java
+    String defaultFontName = "sans-serif";
+
+    try {
+        FileInputStream fontsIn = new FileInputStream(configFilename);
+        XmlPullParser parser = Xml.newPullParser();
+        parser.setInput(fontsIn, null);
+        boolean done = false;
+        boolean getTheText = false;
+        int eventType;
+        while (!done) {
+            eventType = parser.next();
+            if (eventType == parser.START_TAG && parser.getName().equalsIgnoreCase("name")) {
+                getTheText = true;
+            }
+            if (eventType == parser.TEXT && getTheText) {
+                // first name
+                defaultFontName = parser.getText();
+                done = true;
+            }
+            if (eventType == parser.END_DOCUMENT) {
+                done = true;
+            }
+        }
+    } catch (RuntimeException e) {
+        System.err.println("Didn't create default family (most likely, non-Minikin build)");
+    } catch (FileNotFoundException e) {
+        System.err.println("GetDefaultFont: config file Not found");
+    } catch (IOException e) {
+        System.err.println("GetDefaultFont: IO exception: " + e.getMessage());
+    } catch (XmlPullParserException e) {
+        System.err.println("getDefaultFont: XML parse exception " + e.getMessage());
+    }
+    return defaultFontName;
+}

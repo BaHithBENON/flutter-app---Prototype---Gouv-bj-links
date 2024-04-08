@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "406250189735",
+    "project_id": "gouv-bj-links-a55f2",
+    "storage_bucket": "gouv-bj-links-a55f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406250189735:android:134d8f925995624c59fc82",
+        "android_client_info": {
+          "package_name": "com.asistem.gouvbjlinks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406250189735-s4ikoj5tr5e2e1aaqdv99l3gpggg6t7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTlLnTdJTv-MH_RZgFTNi6FwWfh_nMUw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406250189735-s4ikoj5tr5e2e1aaqdv99l3gpggg6t7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
